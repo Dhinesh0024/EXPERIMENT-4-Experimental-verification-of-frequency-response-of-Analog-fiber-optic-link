@@ -8,66 +8,84 @@ To analyze the relationship between input and received signal of a 660nm fiber o
 ---
 
 ## EQUIPMENTS REQUIRED
-- Fiber optic trainer kit ST 2502  
-- Power supply  
-- Patch cords  
-- CRO (Cathode Ray Oscilloscope)  
-- 660 nm fiber cable  
-
+-	Link-B Kit with power supply.
+-	Patch chords.
+-	20MHz Dual Channel Oscilloscope.
+-	1 MHz Function Generator.
+-	1 Meter Fiber Cable.
 ---
 
 ## THEORY
+- Fiber optic links can be used for transmission of digital as well as analog signals. Basically a fiber optic link contains three main elements, a transmitter, an optical fiber and a receiver. The transmitter module takes the input signal in electrical form and then transforms it into optical (light) energy containing the same information. The optical fiber is the medium which takes the energy to the receiver. At the receiver light is converted back into electrical form with the same pattern as originally fed to the transmitter.
 
-Fiber optic links can be used for transmission of digital as well as analog signals. A fiber optic link typically consists of three main elements:
-- **Transmitter**: Converts the electrical input signal into optical (light) energy.
-- **Optical Fiber**: Serves as the transmission medium for the light signal.
-- **Receiver**: Converts the received light back into an electrical signal, preserving the original signal pattern.
+TRANSMITTER:
+- Fiber Optic transmitters are typically composed of a buffer, driver and Optical Source. The buffer electronics provides both an electrical connection and isolation between the transmitter and the electrical system supplying the data. The driver electronics provides electrical power to the Optical source in a fashion that duplicates the pattern of data being fed to the transmitter. Finally the optical source (LED) converts the electrical current to light energy with the same pattern. The LED SFH450V (950nm) supplied with this kit operates outside the visible light spectrum. Its Optical output is centered at near infrared wavelength of 950nm. The LED SFH756V (660nm) supplied with this kit operates at the visible light spectrum. Its Optical output is centered at wavelength of 660nm.
+
+RECEIVER:
+- The function of the receiver is to convert the optical energy into electrical form, which is then conditioned to reproduce the transmitted electrical signal in it's original form. The detector SFH350V (Photo Transistor Detector) used in the kit has a transistor type output. The parameters usually considered in the case of detector are it's responsivity at peak wavelength and response time. SFH350V (Photo Transistor Detector) has responsivity of about 0.8mA/10uW at 660nm. But its response time is quite large and thus has lower bandwidth of about 300 KHz. When optical signal falls on the base of the transistor detector, proportional current flows through its emitter generating the voltage across the resistance connected between emitter and ground. This voltage is the duplication of the transmitted electrical signal, which can be amplified.
+
+
 
 ---
 
 ## PROCEDURE
 
-1. Connect the power supply to the board.  
-2. Ensure that all switched faults are set to ‘Off’.  
-3. Make the following connections (as shown in Figure 19):  
-   a. Connect the 1KHz sine wave output to emitter 1's input.  
-   b. Connect the fiber optic cable between emitter output and detector input.  
-   c. Connect detector 1's output to AC amplifier 1 input.  
-4. On the board, switch emitter 1's driver to analog mode.  
-5. Switch on the power.  
-6. Observe the input to emitter 1 (TP5) and the output from AC amplifier 1 (TP28). Verify that both signals are identical.  
-7. Vary the frequency between 10 Hz to 1 MHz and observe the output voltage for a constant input voltage of 5V.  
-8. Calculate the bandwidth by determining the gain in decibels (dB).  
+-	Refer to the block diagram & carry out the following connections and settings.
+-	Connect the power supply with proper polarity to the kit link-B and switch it on.
+-	Keep all Switch Faults in OFF position.
+-	Keep switch SW8 towards TX position.
+-	Keep switch SW9 towards TX1 position.
+-	Keep Jumper JP5 towards +12V position.
+-	Keep Jumpers JP6, JP9, JP10 shorted.
+-	Keep Jumper JP8 towards sine position.
+-	Keep Intensity control pot P2 towards minimum position.
+-	Feed about 2Vpp sinusoidal signal of 1 KHz from the function generator to the IN post of Analog Buffer.
+
+<img width="685" height="292" alt="image" src="https://github.com/user-attachments/assets/deeb13f1-8e37-4986-822b-559132f14281" />
+
+ 
+-	Connect the output post OUT of Analog Buffer to the post TX IN of Transmitter.
+-	Slightly unscrew the cap of SFH756V (660nm). Do not remove the cap from the connector. Once the cap is loosened, insert the one meter fiber into the cap. Now tighten the cap by screwing it back.
+-	Connect the other end of the Fiber to detector SFH350V (Photo Transistor Detector) very carefully.
+-	Observe the detected signal at post ANALOG OUT on oscilloscope. Adjust Intensity control pot P2 Optical Power control potentiometer so that you receive signal of 2Vpp amplitude.
+
+<img width="743" height="301" alt="image" src="https://github.com/user-attachments/assets/1ee120f9-92c5-4e97-ac32-f6520bf30d78" />
+
+
+-	To measure the analog bandwidths of the phototransistor vary the input signal frequency and observe the detected signal at various frequencies.
+-	Plot the detected signal against applied signal frequency and from the plot determine the 3dB down frequency.
+-	Keep switch SW9 towards TX2 position.
+-	Keep Jumper JP7 towards +12V position.
+-	Remove fiber cable from SFH756V (660nm) and slightly unscrew the cap of SFH450V (950nm). Do not remove the cap from the connector. Once the cap is loosened, insert the one meter fiber into the cap. Now tighten the cap by screwing it back.
+-	Observe the detected signal at post ANALOG OUT on oscilloscope.
+
+<img width="721" height="292" alt="image" src="https://github.com/user-attachments/assets/599d4fcc-b1e2-45fb-a98d-5f833cade038" />
+
 
 ---
+
 
 ## BLOCK DIAGRAM
 
-<img width="527" height="222" alt="4" src="https://github.com/user-attachments/assets/e04a34d5-b351-4901-85a9-09bc420e50b8" />
 
-
----
-
-## CONNECTION DIAGRAM  
-**Setting up an Analog Link**
-<img width="571" height="122" alt="44" src="https://github.com/user-attachments/assets/8f94d1ce-f929-416d-84fb-ce1606bc5d79" />
+<img width="1189" height="704" alt="514753236-1a50e68b-d082-44d3-87f2-1488bbf5f464" src="https://github.com/user-attachments/assets/239a2b23-f4e8-4966-b07f-d43b86ccde48" />
 
 
 
 ## TABULATION  
 **Transmission through Analog Link**
 
-![444](https://github.com/user-attachments/assets/12294d2a-68f0-46c8-8323-428714d9dbb7)
+![WhatsApp Image 2025-11-17 at 21 48 11_58b6850e](https://github.com/user-attachments/assets/9eb32753-b5c4-48a7-89d7-9681301142c7)
+
+
+
 
 
 ## MODEL GRAPH
 
-<img width="721" height="308" alt="4444" src="https://github.com/user-attachments/assets/84bbf25d-35d9-4dd9-a47e-4ae4330c76ba" />
 
-![WhatsApp Image 2025-11-18 at 10 56 08_b212c0c6](https://github.com/user-attachments/assets/1e77141c-680a-4884-a320-5296a607b66a)
-
+![WhatsApp Image 2025-11-17 at 21 48 11_b8f6068c](https://github.com/user-attachments/assets/e6c89468-1f7d-4e25-a49a-00dd4280fbe9)
 
 
 ## RESULT
-
-The transmitted and received waveforms for the 660 nm fiber link matched closely, confirming faithful analog and digital signal transfer. Output amplitude decreased with increasing frequency, showing the fiber link’s frequency-dependent response. The calculated –3 dB point confirms the bandwidth of the 660 nm analog/digital fiber optic link.
+Thus, the frequency response of the analog fiber optic link was successfully studied, and the bandwidth was determined to be 95 kHz.
